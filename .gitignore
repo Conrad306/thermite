@@ -3,3 +3,4 @@
 out/
 *.lock
 build
+package-lock.json
