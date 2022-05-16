@@ -1,5 +1,5 @@
 import {Navbar, ActionIcon} from '@mantine/core'
-import { IconFiles, IconFileSearch, IconGitMerge } from '@tabler/icons';
+import { IconFiles, IconFileSearch, IconGitMerge, IconSettings, IconUser } from '@tabler/icons';
 import styles from '../styles/Sidebar.module.css'
 
 const Sidebar = () => {
@@ -18,10 +18,22 @@ const Sidebar = () => {
                 </ActionIcon>              
             </Navbar.Section>
               
-            <Navbar.Section className={styles.NavSect}>
+            <Navbar.Section grow className={styles.NavSect}>
                   <ActionIcon variant="transparent">
                     <IconGitMerge size={40}/>
                   </ActionIcon>
+            </Navbar.Section>
+        
+            <Navbar.Section className={styles.NavSect}>
+              <ActionIcon variant="transparent">
+                <IconUser size={40}/>
+              </ActionIcon>
+            </Navbar.Section>
+        
+            <Navbar.Section className={styles.NavSect}>
+              <ActionIcon variant="transparent">
+                <IconSettings size={40}/>
+              </ActionIcon>
             </Navbar.Section>
 
       </Navbar>
