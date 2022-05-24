@@ -1,11 +1,12 @@
 import {Navbar, ActionIcon} from '@mantine/core'
-import { IconFiles, IconFileSearch, IconGitMerge, IconSettings, IconUser } from '@tabler/icons';
+import { IconFiles, IconFileSearch, IconGitMerge, IconUser } from '@tabler/icons';
 import styles from '../styles/Sidebar.module.css'
+import Settings from './Settings'
 
 const Sidebar = () => {
   return (
       <div>
-        <Navbar width={{ base: 50 }} height={600} p="xs">
+        <Navbar fixed width={{ base: 50 }} height={'100%'} p="xs">
             <Navbar.Section className={styles.NavSect}>
                 <ActionIcon variant="transparent">
                     <IconFiles size={40} />
@@ -31,9 +32,7 @@ const Sidebar = () => {
             </Navbar.Section>
         
             <Navbar.Section className={styles.NavSect}>
-              <ActionIcon variant="transparent">
-                <IconSettings size={40}/>
-              </ActionIcon>
+             <Settings />
             </Navbar.Section>
 
       </Navbar>
