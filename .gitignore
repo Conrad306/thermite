@@ -1,6 +1,16 @@
+
+# Node Modules
 /node_modules
-.idea/
+
+# Builds
 out/
-*.lock
 build
+
+# Package lock
 package-lock.json
+pnpm-lock.yaml
+yarn.lock
+*.lock
+
+# IDE
+.idea/
