@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { javascript } from '@codemirror/lang-javascript';
-import { html } from '@codemirror/lang-html';
-import { css } from '@codemirror/lang-css';
-import { json } from '@codemirror/lang-json';
-import { python } from '@codemirror/lang-python';
-import { markdown } from '@codemirror/lang-markdown';
-import { xml } from '@codemirror/lang-xml';
+import { javascript, javascriptLanguage } from '@codemirror/lang-javascript';
+import { html, htmlLanguage } from '@codemirror/lang-html';
+import { css, cssLanguage } from '@codemirror/lang-css';
+import { json, jsonLanguage } from '@codemirror/lang-json';
+import { python, pythonLanguage } from '@codemirror/lang-python';
+import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
+import { xml, xmlLanguage } from '@codemirror/lang-xml';
 import { sql, MySQL, PostgreSQL } from '@codemirror/lang-sql';
-import { java } from '@codemirror/lang-java';
-import { rust } from '@codemirror/lang-rust';
-import { cpp } from '@codemirror/lang-cpp';
-import { lezer } from '@codemirror/lang-lezer';
-import { php } from '@codemirror/lang-php';
-import { StreamLanguage } from '@codemirror/language';
+import { java, javaLanguage } from '@codemirror/lang-java';
+import { rust, rustLanguage } from '@codemirror/lang-rust';
+import { cpp, cppLanguage } from '@codemirror/lang-cpp';
+import { lezer, lezerLanguage } from '@codemirror/lang-lezer';
+import { php, phpLanguage } from '@codemirror/lang-php';
+import { StreamLanguage, syntaxHighlighting } from '@codemirror/language';
 import { go } from '@codemirror/legacy-modes/mode/go';
 import { ruby } from '@codemirror/legacy-modes/mode/ruby';
 import { shell } from '@codemirror/legacy-modes/mode/shell';
@@ -37,11 +37,11 @@ import { coffeeScript } from '@codemirror/legacy-modes/mode/coffeescript';
 import { dockerFile } from '@codemirror/legacy-modes/mode/dockerfile';
 import { julia } from '@codemirror/legacy-modes/mode/julia';
 import { r } from '@codemirror/legacy-modes/mode/r';
-import styles from '../styles/Editor.module.css';
-import CodeMirror, { Extension } from '@uiw/react-codemirror';
-import { Select } from '../utils/Select';
-
-const langs: Record<string, any> = {
+import CodeMirror, { Extension } from "@uiw/react-codemirror"
+import useStyles from './Editor.styles';
+import { useMantineColorScheme } from '@mantine/core';
+import { italicDark, italicDarkHighlight } from "../../themes/italicDark";
+const langs = {
   javascript,
   jsx: () => javascript({ jsx: true }),
   typescript: () => javascript({ typescript: true }),
@@ -52,7 +52,7 @@ const langs: Record<string, any> = {
   python,
   markdown,
   xml,
-  sql,
+  sql: sql,
   mysql: () => sql({ dialect: MySQL }),
   pgsql: () => sql({ dialect: PostgreSQL }),
   java,
@@ -84,26 +84,25 @@ const langs: Record<string, any> = {
   julia: () => StreamLanguage.define(julia),
   dockerfile: () => StreamLanguage.define(dockerFile),
   r: () => StreamLanguage.define(r)
-};
+}
+
 
 
 export default function Editor(){
+  const { classes } = useStyles(); 
   const [code, setCode] = useState('');
   const [editable, setEditable] = useState(true);
-  const [extensions, setExtensions] = useState<Extension[]>([]);
-
-
+  const [extensions, setExtensions] = useState<Extension[]>();
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
   return (
-      <CodeMirror
-        value={code}
-        height="auto"
-        editable={editable}
-        theme={'dark'}
-        extensions={extensions}
-        autoFocus={true}
-        className={styles.codemirror}
-        placeholder={''}
-        onChange={(value) => setCode(value)}
-      />
+          <CodeMirror
+          value={code}
+          height="100vh"
+          editable={editable}
+          theme={italicDark}
+          extensions={[javascript({typescript: true})]}
+          className={classes.codeMirror}
+          onChange={(value) => setCode(value)}
+        />
   )
 }

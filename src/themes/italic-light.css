@@ -1,0 +1,10 @@
+.cm-s-italic-light {
+    font-size: 1rem;
+    line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+}
+.cm-s-light .cm-comment {
+   font-style: italic;
+}
