@@ -39,8 +39,10 @@ import { julia } from '@codemirror/legacy-modes/mode/julia';
 import { r } from '@codemirror/legacy-modes/mode/r';
 import CodeMirror, { Extension } from "@uiw/react-codemirror"
 import useStyles from './Editor.styles';
-import { useMantineColorScheme } from '@mantine/core';
-import { italicDark, italicDarkHighlight } from "../../themes/italicDark";
+import { discord } from '../../themes/discord';
+import { basicSetup } from "@codemirror/basic-setup"
+import Tab from './Tabs/Tabs';
+import { italicDark } from '../../themes/italicDark';
 const langs = {
   javascript,
   jsx: () => javascript({ jsx: true }),
@@ -93,16 +95,20 @@ export default function Editor(){
   const [code, setCode] = useState('');
   const [editable, setEditable] = useState(true);
   const [extensions, setExtensions] = useState<Extension[]>();
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
   return (
+         <>
+          <Tab count={1} tabName={"example.ts"} isSaved={true} />
           <CodeMirror
           value={code}
           height="100vh"
           editable={editable}
           theme={italicDark}
-          extensions={[javascript({typescript: true})]}
+          extensions={[javascript({typescript: true}), basicSetup]}
           className={classes.codeMirror}
-          onChange={(value) => setCode(value)}
-        />
+          onChange={(value) => {
+            setCode(value);
+          }}
+          />
+         </>
   )
 }

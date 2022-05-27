@@ -5,7 +5,6 @@ import useStyles from "./Settings.styles";
 
 const Settings = () => {
     const [opened, setOpened] = useState(false);
-    const { colorScheme, toggleColorScheme } = useMantineColorScheme()
     const [checked, setChecked] = useState(false);
     const { classes } = useStyles();
 
@@ -36,7 +35,7 @@ const Settings = () => {
 
 
             <ActionIcon variant="transparent" onClick={() => setOpened(true)} className={classes.icon}>
-                <IconSettings size={40}/>
+                <IconSettings size={20}/>
             </ActionIcon>
         </div>
     );

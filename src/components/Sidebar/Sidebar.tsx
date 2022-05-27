@@ -13,23 +13,21 @@ const Sidebar = () => {
     <div className={classes.container}>
       <div className={classes.navSect}>
           <ActionIcon size="lg" className={classes.icon}>
-            {
-              <IconFiles />
-            }
+            <IconFiles width={25}/>
           </ActionIcon>
          
           <ActionIcon size="lg" className={classes.icon}>
-            <IconFileSearch />
+            <IconFileSearch width={25}/>
           </ActionIcon>
           <ActionIcon size="lg" className={classes.icon}>
-            <IconGitMerge />
+            <IconGitMerge width={25}/>
           </ActionIcon>
       </div>  
     </div>
     <div className={classes.configContainer}>
       <div className={classes.navSect} > 
           <ActionIcon size="lg" py="lg" className={classes.icon}>
-            <IconUser />
+            <IconUser width={25}/>
           </ActionIcon>      
           <Settings />
       </div>

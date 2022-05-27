@@ -15,7 +15,7 @@ export default createStyles((theme) => ({
         height: '100vh', 
         backgroundColor: "#141417", 
         width: '35px', 
-        marginRight: '2px'
+        marginRight: '2px', 
     },
     configContainer: {
         display: 'flex', 
@@ -26,10 +26,5 @@ export default createStyles((theme) => ({
     }, 
     icon: {
         color: 'grey',
-        backgroundColor: 'transparent',
-        '&:hover': {
-            color: 'white'
-        }
     }
-    
 }));

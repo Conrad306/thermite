@@ -31,7 +31,7 @@ export const italicDarkHighlight = HighlightStyle.define([
        {tag: [tags.name, tags.deleted, tags.character, tags.propertyName, tags.macroName],
         color: '#324aa8'},
        {tag: [tags.function(tags.variableName), tags.labelName],
-        color: '#4814a8'
+        color: '#652ad1'
        },
        {tag: [tags.color, tags.constant(tags.name), tags.standard(tags.name)],
         color: '#d19a66'},
